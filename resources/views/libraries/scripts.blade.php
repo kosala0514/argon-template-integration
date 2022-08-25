@@ -12,6 +12,8 @@
 
   <script src="{{ asset('assets/js/argon-dashboard.min.js?v=2.0.5') }}"></script>
 
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -163,3 +165,5 @@
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
   </script>
+
+@stack('js')

@@ -9,7 +9,7 @@
 <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
 <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
 
-<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link href="{{ asset('assets/css/nucleo-svg.css" rel=') }}"stylesheet" />
 
 <link id="pagestyle" href="{{ asset('assets/css/argon-dashboard.min.css') }}" rel="stylesheet" />
@@ -19,3 +19,5 @@
       opacity: 0 !important
     }
   </style>
+
+@stack('css')
