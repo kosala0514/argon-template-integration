@@ -1,16 +1,16 @@
 @livewireScripts
 
-<script src="../../assets/js/core/popper.min.js"></script>
-  <script src="../../assets/js/core/bootstrap.min.js"></script>
-  <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+  <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
 
-  <script src="../../assets/js/plugins/dragula/dragula.min.js"></script>
-  <script src="../../assets/js/plugins/jkanban/jkanban.js"></script>
-  <script src="../../assets/js/plugins/chartjs.min.js"></script>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="{{ asset('assets/js/plugins/dragula/dragula.min.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins/jkanban/jkanban.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+  <script async defer src="{{ asset('https://buttons.github.io/buttons.js') }}"></script>
 
-  <script src="../../assets/js/argon-dashboard.min.js?v=2.0.5"></script>
+  <script src="{{ asset('assets/js/argon-dashboard.min.js?v=2.0.5') }}"></script>
 
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
