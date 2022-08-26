@@ -1,34 +1,32 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="row">
+        <div class="row px-3">
             <div class="col-lg-6">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                       <li class="breadcrumb-item text-sm">
                         <a class="text-white" href="#">
-                          <i class="ni ni-box-2"></i>
+                            <i class="fa-solid fa-house"></i>
                         </a>
                       </li>
-                      <li class="breadcrumb-item text-sm text-white"><a class="opacity-5 text-white" href="javascript:;">Pages</a>
+                      <li class="breadcrumb-item text-sm text-white"><a class="opacity-5 text-white" href="javascript:;">Products</a>
                       </li>
-                      <li class="breadcrumb-item text-sm text-white active" aria-current="page">Default</li>
+                      <li class="breadcrumb-item text-sm text-white active" aria-current="page">All</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0 text-white">Default</h6>
                   </nav>
             </div>
             <div class="col-lg-6">
-
+                <div width="10px" class="text-right">
+                    <button type="button" class="btn btn-primary">
+                        Add
+                    </button>
+                </div>
             </div>
         </div>
     </x-slot>
     <x-slot name="content">
         <div class="container">
             <div class="row">
-                <div width="10px">
-                    <button type="button" class="btn btn-primary">
-                        Add
-                    </button>
-                </div>
                 <div class="card">
                     <div class="table-responsive">
                       <table class="table align-items-center mb-0" id="productTable">
