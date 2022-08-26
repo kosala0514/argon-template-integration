@@ -13,10 +13,14 @@ class ProductController extends ParentController
         return view('pages.product.index')->with($response);
     }
 
+    public function new(){
+        return view('pages.product.add');
+    }
+
     public function store(Request $request){
         // dd($request);
         ProductFacade::store($request->all());
-        return redirect()->back();
+        return redirect()->route('product');
     }
 
     public function delete($item_id){

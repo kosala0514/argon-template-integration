@@ -15,12 +15,9 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-
-// Route::get('/', [HomeController::class, "index"])->name('dashboard');
-
 Route::get('/', [HomeController::class,'index']) -> name("dashboard");
 
-Route::prefix('/dashboard')->group(function () {
+Route::prefix('/product')->group(function () {
     Route::get('/', [ProductController::class,'index']) -> name("product");
     Route::post('/store', [ProductController::class,'store']) -> name("product.store");
     Route::get('/{item_id}/delete', [ProductController::class,'delete']) -> name("product.delete");
@@ -28,4 +25,5 @@ Route::prefix('/dashboard')->group(function () {
 
     Route::post('/{item_id}/update', [ProductController::class,'update']) -> name("product.update");
     Route::get('/edit', [ProductController::class,'edit']) -> name("product.edit");
+    Route::get('/new', [ProductController::class,'new']) -> name("product.new");
 });
