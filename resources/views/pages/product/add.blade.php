@@ -1,7 +1,6 @@
-<x-app-layout>
-    <x-slot name="content">
         <form role="form" action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+
             <div class="row mt-3">
               <div class="col-md-6">
                 <div class="form-group">
@@ -23,6 +22,3 @@
                     <button class="btn btn-primary" type="submit">Send</button>
             </div>
           </form>
-    </x-slot>
-</x-app-layout>
-

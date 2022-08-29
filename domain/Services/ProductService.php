@@ -48,4 +48,7 @@ class ProductService{
     public function allActive(){
         return $this->item->allActive();
     }
+    public function filter(array $data){
+        return $this->item->filter($data);
+    }
 }

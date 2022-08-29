@@ -5,11 +5,11 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                       <li class="breadcrumb-item text-sm">
-                        <a class="text-white" href="#">
+                        <a class="text-white" href="{{ route('dashboard') }}">
                             <i class="fa-solid fa-house"></i>
                         </a>
                       </li>
-                      <li class="breadcrumb-item text-sm text-white"><a class="opacity-5 text-white" href="javascript:;">Products</a>
+                      <li class="breadcrumb-item text-sm text-white"><a class="opacity-5 text-white" href="{{ route('product') }}">Products</a>
                       </li>
                       <li class="breadcrumb-item text-sm text-white active" aria-current="page">All</li>
                     </ol>
@@ -17,9 +17,7 @@
             </div>
             <div class="col-lg-6">
                 <div width="10px" class="text-right">
-                    <button type="button" class="btn btn-primary">
-                        Add
-                    </button>
+                    <a class="badge badge-sm badge-info" href="javascript:void(0)" ><i onclick="itemAddModal()" class="fa-solid fa-plus"></i></a>
                 </div>
             </div>
         </div>
@@ -27,7 +25,7 @@
     <x-slot name="content">
         <div class="container">
             <div class="row">
-                <div class="card">
+                <div class="card py-3">
                     <div class="table-responsive">
                       <table class="table align-items-center mb-0" id="productTable">
                         <thead>
@@ -73,8 +71,24 @@
                     </div>
                 </div>
             </div>
+
+            {{-- for livewire testing --}}
+            <div class="row m-3">
+              <div class="col-lg-6">
+                <input onkeyup="getFilterProducts" type="number" class="form-control min-price price-input" name="min_price" id="min_price" placeholder="Min Price">
+              </div>
+              <div class="col-lg-6">
+                <input onkeyup="getFilterProducts"  type="number" class="form-control min-price price-input" name="max_price" id="max_price" placeholder="Max Price">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>Livewire Testing</h1>
+                <livewire:product.filter />
+              </div>
+            </div>
         </div>
-    <div class="modal fade" id="edititem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="edititem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -86,8 +100,19 @@
           </div>
         </div>
       </div>
-    </x-slot>
-</x-app-layout>
+      <div class="modal fade" id="additem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >Add Product</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="itemAddContent">
+            </div>
+          </div>
+        </div>
+      </div>
+  </x-slot>
   @push('css')
     <style>
         .page-title{
@@ -122,6 +147,22 @@
     }
 </script>
 <script>
+    function itemAddModal(){
+        $.ajax({
+            url: "{{ route('product.new') }}",
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'GET',
+            dataType:'',
+            success: function (response){
+                $('#additem').modal('show');
+                $('#itemAddContent').html(response);
+            }
+        });
+    }
+</script>
+<script>
     $(document).ready( function () {
         $('#productTable').DataTable({
             "language": {
@@ -135,4 +176,15 @@
         });
     } );
 </script>
+<script>
+  $(document).ready(function () {
+    getFilterProducts();
+  });
+  function getFilterProducts(){
+    var max_price = $('#max_price').val();
+    var min_price = $('#min_price').val();
+    @this.call('getFilterProducts',max_price, min_price);
+  }
+</script>
 @endpush
+</x-app-layout>
