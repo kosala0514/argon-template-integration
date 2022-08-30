@@ -18,3 +18,15 @@
         </div>
     </div>
 </div>
+@push('js')    
+  <script>
+    $(document).ready(function () {
+      getFilterProducts();
+    });
+    function getFilterProducts(){
+      var max_price = $('#max_price').val();
+      var min_price = $('#min_price').val();
+      @this.call('getFilterProducts',max_price, min_price);
+    }
+  </script>
+@endpush

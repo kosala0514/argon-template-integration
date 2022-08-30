@@ -71,23 +71,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- for livewire testing --}}
-            <div class="row m-3">
-              <div class="col-lg-6">
-                <input onkeyup="getFilterProducts" type="number" class="form-control min-price price-input" name="min_price" id="min_price" placeholder="Min Price">
-              </div>
-              <div class="col-lg-6">
-                <input onkeyup="getFilterProducts"  type="number" class="form-control min-price price-input" name="max_price" id="max_price" placeholder="Max Price">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                <h1>Livewire Testing</h1>
-                <livewire:product.filter />
-              </div>
-            </div>
-        </div>
       <div class="modal fade" id="edititem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -175,16 +158,6 @@
             }
         });
     } );
-</script>
-<script>
-  $(document).ready(function () {
-    getFilterProducts();
-  });
-  function getFilterProducts(){
-    var max_price = $('#max_price').val();
-    var min_price = $('#min_price').val();
-    @this.call('getFilterProducts',max_price, min_price);
-  }
 </script>
 @endpush
 </x-app-layout>

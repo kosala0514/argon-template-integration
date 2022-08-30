@@ -22,7 +22,7 @@ class Filter extends Component
         $res['products'] = ProductFacade::filter($data);
         // $res['tc']=$this;
 
-        return view('pages.product.components.filter')->with($res);
+        return view('pages.customer.components.filter')->with($res);
     }
 
     public function getFilterProducts($max_price, $min_price){
